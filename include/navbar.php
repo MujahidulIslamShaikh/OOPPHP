@@ -13,6 +13,7 @@ include './include/head.php';
         <div class="flex gap-4 items-center">
             <a href="insertForm.php">Insert From</a>
             <a href="View.php">View</a>  
+            <a href="add_admin.php">Add Admin</a>  
         </div>
 
         <div class="flex items-center gap-4 font-medium ">

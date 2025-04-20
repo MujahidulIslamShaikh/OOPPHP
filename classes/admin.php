@@ -1,6 +1,7 @@
 <?php
 
 include './config/db.php';
+// include '../config/db.php';
 
 class Admin
 {
@@ -11,7 +12,23 @@ class Admin
         $this->conn = $db;
     }
 
+    public function addAdmin($email, $pass){
+        $stmtcheck = $this->conn->prepare("SELECT * FROM admins where email = :email");
+        $stmtcheck->bindParam(':email', $email);
+        $stmtcheck->execute();
+        $data = $stmtcheck->fetch(PDO::FETCH_ASSOC);
+        if($data){
+            return 'this email already exist !';
+            exit;
+        } 
 
+
+       $stmt = $this->conn->prepare("insert into admins (email, pass) values (:email, :pass)");
+       $stmt->bindParam(':email', $email);
+       $stmt->bindParam(':pass', $pass);
+       return $stmt->execute();
+        
+    }
     public function login($email, $pass)
     {
         $stmt = $this->conn->prepare("SELECT * FROM " . $this->table_name .
@@ -22,6 +39,10 @@ class Admin
         ]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+    public function delete($id) {
+
+    }
+   
 }
 
 $admin = new Admin($conn);
