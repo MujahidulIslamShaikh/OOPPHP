@@ -15,9 +15,6 @@ if (isset($_GET['id'])) {
 // $filterdata = [];
 if (isset($_POST['srchSubmit'])) {
 	$filterdata = $students->search("students", $_POST['search']);
-	echo '<pre>';
-	print_r($filterdata);
-	echo '</pre>';
 	if (!$filterdata) {
 		echo "Record Not Found !!";
 	}

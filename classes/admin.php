@@ -1,6 +1,6 @@
 <?php
 
-include '../config/db.php';
+include './config/db.php';
 
 class Admin
 {
@@ -25,7 +25,3 @@ class Admin
 }
 
 $admin = new Admin($conn);
-$data = $admin->login("admin@gmail.com", "admin123");
-echo '<pre>';
-print_r($data);
-echo '</pre>';

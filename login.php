@@ -1,11 +1,21 @@
 <?php 
+session_start();
 include './include/head.php';
 include './include/navbar.php';
 include './classes/admin.php';
 
+
 if(isset($_POST['adminLogin'])){
 
-    $students->insert("students", $_POST['name'], $_POST['course']);
+    $data = $admin->login($_POST['email'], $_POST['pass']);
+    print_r($data);
+    if($data){
+        $_SESSION['admin'] = $_POST['email'];
+        header('location: index.php');
+    } else {
+        echo 'Invalid email and password !';
+    }
+    
 
 }
 

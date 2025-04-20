@@ -9,9 +9,10 @@ $student = new Students($conn);
 $results = [];
 
 if (isset($_POST['search'])) {
-    $term = $_POST['term'];
-    $results = $student->search($term);
+    $term = $_POST['term']; // ✅ Yeh line zaroori hai
+    $results = $student->search($term); // Yahan red line nahi aani chahiye
 }
+
 ?>
 
 <h2>🔍 Search Student</h2>
