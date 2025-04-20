@@ -15,8 +15,10 @@ include './include/head.php';
             <a href="View.php">View</a>  
         </div>
 
-        <div>
-            <a href="">Signup</a>
+        <div class="flex items-center gap-4 font-medium ">
+            <a href="signup.php">Signup</a>
+            <a href="login.php">Login</a>
+            <a href="logout.php">Logout</a>
         </div>
     </nav>
 </div>

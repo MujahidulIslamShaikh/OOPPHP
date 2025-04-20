@@ -5,7 +5,7 @@ require './classes/OOPClass.php';
 $db = new Database();
 $conn = $db->connect();
 
-$student = new Student($conn);
+$student = new Students($conn);
 $results = [];
 
 if (isset($_POST['search'])) {
