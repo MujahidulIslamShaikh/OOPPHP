@@ -1,6 +1,6 @@
 <?php
 
-include './config/db.php';
+// include './config/db.php';
 // include '../config/db.php';
 
 class Admin
@@ -39,9 +39,15 @@ class Admin
         ]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+    public function getallAdmins() {
+        $stmt = $this->conn->prepare("SELECT * FROM ".$this->table_name);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
     public function delete($id) {
 
     }
+    
    
 }
 
